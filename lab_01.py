@@ -3,13 +3,25 @@
 # Instructions and requirements:
 # 1. Na bazie załączonego "Szyfru_Cezara" zaproponuj i zaimplementuj bezpieczniejszy szyfr "podstawieniowy" korzystając z zależności s[i] = (w[i] + k[i]) mod n, gdzie n => rozmiar alfabetu w załączonym przykładzie jako len(alfabet). 
 # 2. Wyznacz poziom bezpieczeństwa zaproponowanego "bezpieczniejszego" szyfru.
+#       podatność kryptograficzna zaproponowanego szyfru liczymy z liczebności możliwych kluczy
+#       zaokr.gora(log2(26^dł(słowo_wej))) = 5*dł(słowo_wej)
 # 3. Na bazie załączonego "Szyfru_Cezara" zaproponuj i zaimplementuj bezpieczniejszy szyfr
 #      "przestawieniowy" i wyznacz jego poziom bezpieczeństwa.
+#
 # 4. Skomentuj podatność na kryptoanalizę zaproponowanych szyfrów
+#    Dla dobrze zbalansowanego klucza szyfrującego zaproponowany algorytm jest odporny na literowy atak statystyczny. 
 # 5. Sprawdź oraz skomentuj czy zaproponowane implementacje spełniają
 #    wymogi dyfuzji i konfuzji zastanów się, co można by zmienić lub dodać by otrzymać "lepszy" rezultat dla dyfuzji i konfuzji.
-#
-
+#       
+#       Konfuzja - Algorytm spełnia częściowo wymogi konfuzji,
+#               gdyż dla każdego elementu teksu wejściowego generyjemy całkowicie nowy klucz szyfrujący.
+#               Nie występuje zastosowanie celowej korelacji, lecz nadal może wystąpić sytuacja,
+#               wktórej część słowa zostanie zaszyfrowana tym samym kluczem.
+#   
+#       Dyfuzja - nowozaproponowany algorytm nie spełnia wymogów dyfuzji.
+#               Zmiana pojedyńczego elementu słowa wejściowego poskutkuje
+#               potencjalnie zmianą części klucza dla jedynie danego elementu. 
+# 
 # TODO: encoding key should have the least possible repeating elements
 import random
 import sys
