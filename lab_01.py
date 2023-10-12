@@ -32,9 +32,27 @@ if list(set(alphabet) & set(input_word)) != list(set(input_word)):
     raise ValueError(input_word)
 
 # encode input word
-for symbol in input_word:
-    encoded_idx = (alphabet.index(symbol) + key) % len(alphabet) 
-    output_word += alphabet[encoded_idx]
+def encode(alphabet, word):
+    encoded_word = ""
+    key = ""
+
+    for symbol in word:
+        encoded_idx = (alphabet.index(symbol) + key) % len(alphabet) 
+        encoded_word += alphabet[encoded_idx]
+
+    return (key, encoded_word)
+
+# decode input word
+def decode(alphabet, key, encoded_word):
+    decoded_word = ""
+
+    for symbol in encoded_word:
+        decoded_idx = (alphabet.index(symbol) - key) % len(alphabet) 
+        decoded_word += alphabet[decoded_idx]
+
+    return decoded_idx
+
+    
 
 print(input_word)
 print(output_word)
