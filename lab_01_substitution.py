@@ -9,14 +9,16 @@
 #      "przestawieniowy" i wyznacz jego poziom bezpieczeństwa.
 #
 # 4. Skomentuj podatność na kryptoanalizę zaproponowanych szyfrów
-#    Dla dobrze zbalansowanego klucza szyfrującego zaproponowany algorytm jest odporny na literowy atak statystyczny. 
+#    Dla dobrze zbalansowanego klucza szyfrującego zaproponowany algorytm jest odporny na literowy atak statystyczny.
+#    Algorytm jest pseudolosoy, więc teoretycznie odporny na analizę liniową. Treść szyfrowanego słowa nie definiuje wartości klucza.
+#       
 # 5. Sprawdź oraz skomentuj czy zaproponowane implementacje spełniają
 #    wymogi dyfuzji i konfuzji zastanów się, co można by zmienić lub dodać by otrzymać "lepszy" rezultat dla dyfuzji i konfuzji.
 #       
 #       Konfuzja - Algorytm spełnia częściowo wymogi konfuzji,
 #               gdyż dla każdego elementu teksu wejściowego generyjemy całkowicie nowy klucz szyfrujący.
 #               Nie występuje zastosowanie celowej korelacji, lecz nadal może wystąpić sytuacja,
-#               wktórej część słowa zostanie zaszyfrowana tym samym kluczem.
+#               wktórej część słowa zostanie zaszyfrowana tym samym elementem finalnego klucza.
 #   
 #       Dyfuzja - nowozaproponowany algorytm nie spełnia wymogów dyfuzji.
 #               Zmiana pojedyńczego elementu słowa wejściowego poskutkuje
