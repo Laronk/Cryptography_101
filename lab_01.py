@@ -10,7 +10,6 @@
 #    wymogi dyfuzji i konfuzji zastanów się, co można by zmienić lub dodać by otrzymać "lepszy" rezultat dla dyfuzji i konfuzji.
 #
 
-# TODO: each input_word position should be encoded with different key
 # TODO: encoding key should have the least possible repeating elements
 import random
 import sys
