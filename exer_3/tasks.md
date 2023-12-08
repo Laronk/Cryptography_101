@@ -15,6 +15,8 @@ Jeśli tu wynikiem będzie 1 w którykolwiek z przypadków, to liczba 15 nie jes
 
 Skomentuj właściwości takiego ciągu w kontekście wykorzystania jako „PRNG”
 
+NR Indeksu % liczba 16bitowa pierwsza = liczba do sprawdzenia (po index jest za duży bitowo)
+
 2. Korzystając z generatora BBS_prime wygeneruj dwie różne liczby pierwsze rozmiaru 32 bitów i dla ich iloczynu n= p*q sprawdź, czy „Twój” numer indeksu spełnia wymagania klucza kryptograficznego algorytmem RSA dla wygenerowanego n = p*q
 
 docient eulera

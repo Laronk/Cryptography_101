@@ -1,10 +1,17 @@
-# Odszyfruj szyfrogram S = 92056083186673327707438445422138850995
-# RSA z kluczem {e, N},
-# gdzie e = 65537 oraz N = p*q = 340277174544854189285703885855116560303
+# Potegowanie metodą binarną
+# (a ** b) % m
+def power(a, b, m):
+    d = 1
+    k = len(b.bits()) - 1
+    for i in range(k, -1, -1):
+        d = (d * d) % m
+        if (b >> i) & 1:
+            d = (d * a) % m
+    return d
+
+#Implementacja szyfrowania i deszyfrowania RSA
+# z kluczem {e, N}, gdzie e = 65537 oraz N = p*q
 # Klasa RSA implemntująca szyfrowanie i deszyfrownaie
-
-from sage.crypto.util import random_blum_prime, ascii_to_bin, bin_to_ascii
-
 class RSA:
     def __init__(self, p, q):
         self.p = p
@@ -14,8 +21,7 @@ class RSA:
         self.e = 65537 #random_blum_prime(3, self.phi)
         self.d = inverse_mod(self.e, self.phi)
         self.block_len = len(self.n.bits()) - 1
-        print(' e= ',self.e,' d= ', self.d)
-        
+
     def get_public_key(self):
         return self.e, self.n
 
@@ -48,12 +54,8 @@ class RSA:
         bin_string += self._get_bin_block(blocks[-1], msg_len * 8 - len(bin_string))
         return bin_to_ascii(bin_string[0 : msg_len * 8])
 
-
-size = 64
-p = random_blum_prime(2 ** (size-1) +1, 2 ** size -1)
-q = random_blum_prime(2 ** (size-1) +1, 2 ** size -1)
-#p=43
-#q=31
+p = 29
+q = 31
 
 rsa = RSA(p, q)
 msg = "ala ma kota"
